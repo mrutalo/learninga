@@ -1,43 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-const ChatWindow = ({ messages, onSendMessage }) => {
-  const [inputMessage, setInputMessage] = useState('');
-
-  const handleInputChange = (e) => {
-    setInputMessage(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (inputMessage.trim()) {
-      onSendMessage(inputMessage);
-      setInputMessage('');
-    }
-  };
-
-  useEffect(() => {
-    // Scroll to bottom of chat window when new messages arrive
-    // ... scrolling logic here ...
-  }, [messages]);
-
+const ChatWindow = () => {
   return (
-    <div className="chat-window">
-      <div className="message-list">
-        {messages.map((message, index) => (
-          <div key={index} className={`message ${message.sender}`}>
-            {message.text}
+    <div className="chat-window h-[500px] overflow-y-auto border border-gray-300 p-4">
+      <div className="chat-messages flex flex-col space-y-4">
+        <div className="message user-message self-end">
+          <div className="message-bubble bg-blue-500 text-white px-4 py-2 rounded-lg max-w-[70%]">
+            Hello! How can I help you today?
           </div>
-        ))}
+        </div>
+        <div className="message system-message self-start">
+          <div className="message-bubble bg-gray-200 text-black px-4 py-2 rounded-lg max-w-[70%]">
+            Hi there! I'm here to assist you with any questions you might have. Feel free to ask about anything!
+          </div>
+        </div>
       </div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={inputMessage}
-          onChange={handleInputChange}
-          placeholder="Type a message..."
-        />
-        <button type="submit">Send</button>
-      </form>
     </div>
   );
 };
