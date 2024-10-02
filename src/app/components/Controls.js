@@ -2,12 +2,12 @@ import React from 'react';
 
 const Controls = ({ onSubmit, onStart, onStop, onReset }) => {
   return (
-    <div className="controls flex space-x-4">
-      <div className="mb-4"> {/* Add margin below the textbox */}
+    <div>
+<div className="mb-4"> {/* Add margin below the textbox */}
         <input
           type="text"
           value={"text"} // Update state on text change
-          className="text-black font-bold py-2 px-4 rounded"
+          className="text-black font-bold py-2 px-4 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
         <button
           onClick={onSubmit} // Use the text state when submitting
@@ -16,6 +16,9 @@ const Controls = ({ onSubmit, onStart, onStop, onReset }) => {
           Submit
         </button>
       </div>
+    
+    <div className="controls flex space-x-4">
+      
       <button
         onClick={onStart}
         className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
@@ -34,6 +37,7 @@ const Controls = ({ onSubmit, onStart, onStop, onReset }) => {
       >
         Reset
       </button>
+    </div>
     </div>
   );
 };
