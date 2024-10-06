@@ -1,23 +1,40 @@
-import React from 'react';
-
-import Controls from './Controls';
-import ChatWindow from './ChatWindow';
+import React from "react";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
+import Controls from "./Controls";
+import ChatWindow from "./ChatWindow";
 
 function Overall() {
   return (
-    <div className="chat-interface">
-      <header className="bg-blue-500 p-4 text-white text-center">
-        <h1 className="text-2xl font-bold">Hello Again World</h1>
-      </header>
+    <Container maxWidth="sm" style={{ padding: 0 }}>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography
+            variant="h6"
+            component="div"
+            style={{ flexGrow: 1, textAlign: "center" }}
+          >
+            Hello Again Worlds
+          </Typography>
+        </Toolbar>
+      </AppBar>
 
-      <div className='chat-window'>
-        <ChatWindow/>
-      </div>
-     
-      <div className="chat-controls">
+      <Box
+        mt={2}
+        mb={2}
+        p={2}
+        style={{ backgroundColor: "#f5f5f5", borderRadius: 4 }}
+      >
+        <ChatWindow />
+      </Box>
+
+      <Box p={2} style={{ backgroundColor: "#e0e0e0", borderRadius: 4 }}>
         <Controls />
-      </div>
-    </div>
+      </Box>
+    </Container>
   );
 }
 
